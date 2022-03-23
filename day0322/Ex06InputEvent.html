@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body *{     /*  body 의 모든 하위태그들 */
+            font-size: 1.4em;
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+<body>
+    <h2>통장번호를 입력하세요</h2>
+    <input type="text" id="txtinp1">
+    <hr>
+    <b>KeyUp 이벤트:</b>
+    <span id="msg1"></span>
+    <br><br>
+    <b>KeyPress 이벤트:</b>
+    <span id="msg2"></span>
+
+    <script>
+        //  keyup 은 키를 눌렀다가 놓을때 발생하므로 마지막글자까지 읽어온다.
+        document.getElementById("txtinp1").onkeyup=function(e){
+            // console.log(this.value);
+            console.log(e.target.value);
+            document.getElementById("msg1").innerHTML=this.value;
+        }
+
+        //  keypress는 마지막 글자가 눌렸을때 발생하므로 마지막 글자는 못읽어온다.
+        document.getElementById("txtinp1").onkeypress=function(e){
+            document.getElementById("msg2").innerHTML=e.target.value;
+        }
+    </script>
+</body>
+</html>

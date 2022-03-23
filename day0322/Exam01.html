@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body *{     /*  body 의 모든 하위태그들 */
+            font-size: 1.4em;
+            font-family: 'Jua';
+        }
+
+        
+
+        b{
+            font-size: 2em;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            color: aqua;
+            border: 3px solid  red;
+            text-align: center;
+            margin-right: 50px;
+            margin-top: 30px;
+        }
+
+        #msg{
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            left: 300px;
+            border: 2px solid black;
+        }
+
+
+    </style>
+    <script>
+        window.onload=function(){
+            var name = document.getElementById("txtname");
+            var java = document.getElementById("txtjava");
+            var html = document.getElementById("txthtml");
+            var m = document.getElementById("msg");
+
+            document.getElementById("btn1").onclick=function(){
+                // if(name.value==''){
+                //     alert("이름을 먼저 입력해주세요");
+                //     name.focus;
+                //     return;
+                // }
+                // if(java.value==''){
+                //     alert("JAVA점수를 먼저 입력해주세요");
+                //     name.focus;
+                //     return;
+                // }
+                // if(html.value==''){
+                //     alert("HTML점수를 먼저 입력해주세요");
+                //     name.focus;
+                //     return;
+                // }
+
+                // sum = parseInt(txtjava+txthtml);
+                // avg = parseInt(sum/2);
+
+                m.innerText=name.value+"님의 성적은"
+                +"<br>자바"+java+"점"
+                +"<bt>HTML"+html+"점";
+                    // +"<br>총점"+sum+"점"
+                    // +"<br>평균"+avg+"점 입니다.";
+                }
+            }
+        
+    </script>
+</head>
+<body>
+    <!-- <div id="msg">여기에 결과값을 출력</div> -->
+    
+    
+    <div class="b">이름과 성적을 입력합니다</div>
+    <b>이 름 : </b>
+    <input type="text" id="textname" style="width: 100px">
+    <br><br>
+    <b>자 바 : </b>
+    <input type="text" id="textjava" style="width: 100px;">
+    <br><br>
+    <b>HTML : </b>
+    <input type="text" id="texthtml" style="width: 100px;">
+    <br><br>
+    <button type="button" id="btn1" >결과 확인</button>
+
+
+
+
+</body>
+</html>

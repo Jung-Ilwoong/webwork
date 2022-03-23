@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-family: 'Jua';
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left: 300px;">
+        <input type="text" id="su1" style="width: 100px;">
+        <select id="selop" style="width: 150px;">
+            <option selected disabled hidden>연산자</option>
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        
+        <input type="text" id="su2" style="width: 100px;">
+        <br><br>
+        <div id="msg"></div>
+
+    </div>
+
+    <script>
+        document.getElementById("selop").onchange=function(){
+            // alert(this.value);
+            var su1=document.getElementById("su1").value;
+            var su2=document.getElementById("su2").value;
+            var op = this.value;    //  연산자
+
+            //  입력을 했는지 체크
+            if(su1=='' || su2==''){
+                alert("두개의 숫자를 모두 입력후\n연산자를 선택해주세요");
+                return;
+            }
+
+            //  숫자인지 체크
+            if(isNaN(su1) || isNaN(su2)){
+                alert("두개의 숫자를 모두 숫자로 입력후\n연산자를 선택해주세요");
+                return;
+            }
+
+            var result=eval(su1+op+su2);
+            document.getElementById("msg").innerHTML=su1+op+su2+"="+result;
+        }
+    </script>
+</body>
+</html>
