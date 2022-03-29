@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+    
+        body *{
+            font-size: 1.2rem;   /* rem:최상위태그가 기준, em:상위태그 기준 */
+            font-family: 'Jua';
+        }
+
+        div{
+            width: 120px;
+            height: 120px;
+            border: 3px solid gray;
+            cursor: pointer;
+            float: left;
+            margin-left: 10px;
+            background-repeat: no-repeat;
+            background-size: 120px 120px;
+        }
+
+    </style>
+    <script>
+        $(function(){
+            //  5개의 배열
+            var imgarr=new Array(5);
+            imgarr[0]="../음식이미지/갈비립.jpg";
+            imgarr[1]="../음식이미지/김밥.jpg";
+            imgarr[2]="../음식이미지/새우볶음.jpg";
+            imgarr[3]="../음식이미지/알밥.jpg";
+            imgarr[4]="../음식이미지/떡볶이.jpg";
+
+            //  문제 1 : erach 반복문을 이용해서 div에 위 배열 이미지를 넣는다
+            //              background-image 에 url('파일명') 을 이용해서 넣는다.
+            $("div").each(function(index){
+                var urlimg="url('"+imgarr[index]+"')";
+                $(this).css("background-image", urlimg);
+            });
+
+            //  문제 1 : 이미지에 마우스를 올리면 border를  '5px dotted pink' 로 변경하고
+            //              해당 이미지의 파일명을 b태그에 출력
+            //              마우스가 벗어나면 border 는 원래대로 변경(hover 이용해서 해보세요)
+            $("div").hover(function(){
+                $(this).css("border", "5px dotted pink");
+                $("b").text($(this).css("background-image"));
+            }, function(){
+                $(this).css("border", "3px solid gray");
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <b>111</b>
+    <br><br>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    
+</body>
+</html>

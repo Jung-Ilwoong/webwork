@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+    
+        body *{
+            font-size: 1.3rem;
+            font-family: 'Jua';
+        }
+
+        table{
+            margin-top: 50px;
+            border-collapse: collapse;
+        }
+
+        td, th{
+            border: 1px solid gray;
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        #col1{
+            color: white;
+            text-shadow: 1px 1px 4px red;
+        }
+
+        div.msg{
+            position: absolute;
+            top: 300px;
+            width: 400px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 100px;
+            box-shadow: 1px 2px 4px gray;
+            text-shadow: 1px 1px 2px whitesmoke;
+            /* font-weight: ; */
+        }
+
+        div.doll{
+            position: absolute;
+            left: 100px;
+            top: 360px;
+            width: 400px;
+        }
+        
+    </style>
+
+    <script>
+        $(function(){
+            //  버튼이벤트
+
+
+            $("#result").click(function(){
+                var tcolor = $("input[name='txtcolor']:checked").val();
+                $("div.msg").css({
+                    "color": tcolor,
+                    "font-family": $("#fname").val(),
+                    "font-weight": $("#fontstyle2").is(":checked")? "bold": "normal",
+                    "font-style": $("#fontstyle1").is(":checked")? "italic": "normal"
+                });
+
+
+
+                // var sfont = $("select[name=fname]").val();
+                // var sfont = $("#fsname option:selected").val();
+                // $("div.msg").css("font-family", sfont);
+                
+                // var ssfont = $("input[name='fontstyle1']:checked").val();
+                // if (ssfont){
+                // $("div.msg").css({
+                //     "font-style": ssfont,
+                // });}
+                // else{
+                // $("div.msg").css({
+                //     "font-style": "normal",
+                // });}
+                // var ssfont = $("input[name='fontstyle2']:checked").val();
+                // if (ssfont){
+                // $("div.msg").css({
+                //     "font-weight" : ssfont
+                // });}
+                // else{
+                // $("div.msg").css({
+                //     "font-weight": "normal"
+                // });}
+
+                // $("div.msg").html(s);
+
+                //  인형
+                var len = $("input[name='mydoll']:checked").length;
+                if(len==0)
+                    $("div.doll").html("");
+                else
+                    var s="";
+                    $("input[name='mydoll']:checked").each(function(){
+                        s+="<img src='"+$(this).val()+"'>";
+                    });
+                    $("div.doll").html(s);
+            }); 
+            // $("div.selcolor").css("color", $("#txtcolor").val());
+
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="2" align="center" bgcolor="darkgray"
+                    style="color: white; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);" >
+                    문자 출력해보기
+                </td>
+        </tr>
+        <tr>
+            <th width="100">글자색</th>
+            <td width="300" class="selcolor">
+                <input type="radio" name="txtcolor" value="red">빨강&nbsp;
+                <input type="radio" name="txtcolor" value="orange">주황&nbsp;
+                <input type="radio" name="txtcolor" value="yellow">노랑&nbsp;
+                <input type="radio" name="txtcolor" value="green">초록<br>
+                <input type="radio" name="txtcolor" value="blue">파랑&nbsp;
+                <input type="radio" name="txtcolor" value="violet">보라&nbsp;
+                <input type="radio" name="txtcolor" value="black">검정&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <th width="100">글 꼴</th>
+            <td class="selfont">
+                <select id="fname">
+                    <option value="Jua">Jua</option>
+                    <option value="Gamja Flower">감자꽃</option>
+                    <option value="Lobster">바닷가재</option>
+                    <option value="Nanum Pen Script">나눔펜스크립트</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>스타일</th>
+            <td>
+                <input type="checkbox" id="fontstyle2">굵게&nbsp;
+                <input type="checkbox" id="fontstyle1">이태릭
+            </td>
+        </tr>
+        <tr>
+            <th>이미지</th>
+            <td>
+                <input type="checkbox" name="mydoll" value="../img/btn01.gif">이미지1&nbsp;
+                <input type="checkbox" name="mydoll" value="../img/btn02.gif">이미지2&nbsp;
+                <input type="checkbox" name="mydoll" value="../img/btn03.gif">이미지3
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" bgcolor="black"
+                    style="color:white; cursor:pointer; text-shadow: 1px 1px 3px white;" id="result">
+                    결과 버튼
+                </td>
+        </tr>
+    </table>
+
+    <div class="msg">오늘은 힘든 월요일입니다.</div>
+    <div class="doll"></div>
+</body>
+</html>

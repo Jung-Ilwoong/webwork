@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+    
+        body *{
+            font-family: 'Jua';
+        }
+
+        .red{
+            color: red;
+        }
+
+        .green{
+            color: green;
+        }
+
+        .blue{
+            color: blue;
+        }
+
+        
+        div.content>b{
+            cursor: pointer;
+            font-size: 25px;
+        }
+        
+        div.answer>h5{
+            text-indent: 30px;  /* 들여쓰기 */
+        }
+
+        /* 추가 디자인 */
+        div.content{
+            margin-left: 20px;
+            margin-top: 40px;
+        }
+
+        div.content:hover{
+            text-shadow: 1px 1px 5px rgb(228, 228, 186);
+        }
+        
+    </style>
+    <script>
+        $(function(){
+            //  댓글 숨기기
+            $("div.answer").hide();
+
+            // $("div.content").click(function(){
+            //     $(this).find("div.answer").show('slow');
+
+            //     $(this).siblings().find("div.answer").hide('slow');
+            // });
+            //  이벤트
+            //  내용을 클릭시 그 내용에 대한 댓글만 보이고 다른 내용에 대한 댓글은 접기
+
+            $("div.content>b").click(function(){
+                //  기존에 열려있는 댓글 닫기
+                $(this).parent().siblings().find("div.answer").slideUp('slow');
+                //  클릭한 메뉴의 answer 보이게 하기
+                $(this).next().slideDown('slow');    
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="content red">
+        <b>내용1</b>
+        <div class="answer">
+            <h5>내용1에 대한 댓글 1</h5>
+            <h5>내용1에 대한 댓글 2</h5>
+            <h5>내용1에 대한 댓글 3</h5>
+        </div>
+    </div>
+
+    <div class="content green">
+        <b>내용2</b>
+        <div class="answer">
+            <h5>내용1에 대한 댓글 1</h5>
+            <h5>내용1에 대한 댓글 2</h5>
+            <h5>내용1에 대한 댓글 3</h5>
+        </div>
+    </div>
+    
+    <div class="content blue">
+        <b>내용3</b>
+        <div class="answer">
+            <h5>내용1에 대한 댓글 1</h5>
+            <h5>내용1에 대한 댓글 2</h5>
+            <h5>내용1에 대한 댓글 3</h5>
+        </div>
+    </div>
+
+</body>
+</html>

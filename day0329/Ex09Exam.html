@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+
+    <script>
+        $(function(){
+            $("#img").attr("src", arr[0]);
+            
+            
+            $("#img").click(function(){
+                var rimg = parseInt(Math.random()*5);
+
+                $("#img").attr("src", arr[rimg]);
+                rimg="";
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="show">
+        <img src="" id="img" width="300px">
+    </div>
+    <script>
+        var arr=[
+            "../연예인사진/12.jpg",
+            "../연예인사진/13.jpg",
+            "../연예인사진/14.jpg",
+            "../연예인사진/15.jpg",
+            "../연예인사진/16.jpg"
+        ];
+    </script>
+</body>
+</html>
