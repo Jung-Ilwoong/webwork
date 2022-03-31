@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+    <style>
+        div.tooltip{
+            line-height: 1.5;
+            color: white;
+            width: 200px;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 1em;
+            font-size: 12px;
+            border-radius: 30px;
+            font-family: 'Jua';
+        }
+
+        b.view{
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(function(){
+            //  툴팁에 css추가
+            $("div.tooltip").css({
+               "opacity" : "0.9" ,
+               "position" : "absolute",
+               "display" : "none"
+            });
+
+            $("a").bind({
+                mouseover:function(){
+                    $("div.tooltip").fadeIn();
+                },
+                mouseout:function(){
+                    $("div.tooltip").fadeOut();
+                },
+                mousemove:function(e){
+                    $("div.tooltip").css({
+                        top:e.pageX+10+"px",
+                        left:e.pageY+10+"px"
+                    })
+                }
+            });
+
+            $("b.view").bind({
+                mouseover:function(){
+                    $("div.tooltip").fadeIn();
+                },
+                mouseout:function(){
+                    $("div.tooltip").fadeOut();
+                },
+                mousemove:function(e){
+                    $("div.tooltip").css({
+                        top:e.pageX+10+"px",
+                        left:e.pageY+10+"px",
+                        fontSize:"25px"
+                    });
+
+                    $("div.tooltip").text($(this).text());
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>Tooltip 링크 부분에 마우스를 올려보세요</h3>    
+    <a style="font-size: 20px; cursor: pointer;">Tooltip</a>
+    <pre>
+        대우조선해양의 신임 사장 선임을 두고 대통령직인수위원회에서 
+        '정권 말 알박기 인사'라고 주장한 데 대해,
+        청와대가 "현 정부든 다음 정부든 정부가 눈독을 들일 자리가 아니"라고 비판했습니다.
+        <b class="view">신혜현 청와대 부대변인</b>은 "대우조선해양 사장으로는 살아나는 조선 경기 속에서 
+        회사를 빠르게 회생시킬 내부 출신 경영 전문가가 필요할 뿐"이라며 이같이 말했습니다.
+        신 부대변인은 <b class="view">"인수위가 대통령의 이름을 언급하며</b> 비난했기에
+        말하는 것"이라며 "대우조선해양 사장 자리에 인수위가 눈독을 들이고 있었다는 사실이 놀랍다"고 반박했습니다.
+        인수위는 앞서 대우조선해양 박두선 사장이 문재인 대통령 동생의 동창이란 점 등을 
+        이유로 들어 "비상식적이고 몰염치한 처사"라며 "감사원에 조사를 요청하겠다"고 밝혔습니다.
+    </pre>
+    <div class="tooltip">
+        Java<br>
+        HTML<br>
+        jQuery<br>
+        Oracle<br>
+        SpringBoot
+    </div>
+</body>
+</html>
