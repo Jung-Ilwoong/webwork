@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
     <style>
-        div.tooltip{
+        div.tooltip, div.tool2{
             line-height: 1.5;
             color: white;
             width: 200px;
@@ -51,19 +51,19 @@
 
             $("b.view").bind({
                 mouseover:function(){
-                    $("div.tooltip").fadeIn();
+                    $("div.tool2").fadeIn();
                 },
                 mouseout:function(){
-                    $("div.tooltip").fadeOut();
+                    $("div.tool2").fadeOut();
                 },
                 mousemove:function(e){
-                    $("div.tooltip").css({
+                    $("div.tool2").css({
                         top:e.pageX+10+"px",
                         left:e.pageY+10+"px",
                         fontSize:"25px"
                     });
 
-                    $("div.tooltip").text($(this).text());
+                    $("div.tool2").text($(this).text());
                 }
             });
         });
@@ -90,5 +90,6 @@
         Oracle<br>
         SpringBoot
     </div>
+    <div class="tool2"></div>
 </body>
 </html>
